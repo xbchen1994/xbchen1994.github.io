@@ -13,10 +13,8 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
+  <meta name="description" content="Here we introduce the installation of phonopy and phono3py. ">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
@@ -187,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      178 字
+      183 字
     </span>
   
 
@@ -230,14 +228,19 @@
             <h1 style="display: none">VASP_soft install</h1>
             
             <div class="markdown-body">
-              <h1 id="Installation-of-some-software-linked-with-VASP"><a href="#Installation-of-some-software-linked-with-VASP" class="headerlink" title="Installation of some software linked with VASP"></a>Installation of some software linked with VASP</h1><h2 id="1-Phonopy"><a href="#1-Phonopy" class="headerlink" title="1. Phonopy"></a>1. Phonopy</h2><p>More information about this software is found at <a target="_blank" rel="noopener" href="http://atztogo.github.io/phonopy/">http://atztogo.github.io/phonopy/</a><br>We will tell how to install this on Milkyway-2(i.e. TH-2). </p>
+              <p>Here we introduce the installation of phonopy and phono3py. </p>
+<span id="more"></span>
+
+<h1 id="Installation-of-some-software-linked-with-VASP"><a href="#Installation-of-some-software-linked-with-VASP" class="headerlink" title="Installation of some software linked with VASP"></a>Installation of some software linked with VASP</h1><h2 id="1-Phonopy"><a href="#1-Phonopy" class="headerlink" title="1. Phonopy"></a>1. Phonopy</h2><p>More information about this software is found at <a target="_blank" rel="noopener" href="http://atztogo.github.io/phonopy/">http://atztogo.github.io/phonopy/</a><br>We will tell how to install this on Milkyway-2. </p>
 <h4 id="1-Download-the-phonopy-tar-gz-or-tar-bz2-from-the-link-above"><a href="#1-Download-the-phonopy-tar-gz-or-tar-bz2-from-the-link-above" class="headerlink" title="[1] Download the phonopy.tar.gz or tar.bz2 from the link above."></a>[1] Download the phonopy.tar.gz or tar.bz2 from the link above.</h4><h4 id="2-Decompress-the-tar-gz-with-tar-zxvf-…-or-tar-jxvf-for-tar-bz2"><a href="#2-Decompress-the-tar-gz-with-tar-zxvf-…-or-tar-jxvf-for-tar-bz2" class="headerlink" title="[2] Decompress the tar.gz with tar -zxvf … or tar -jxvf for tar.bz2"></a>[2] Decompress the tar.gz with tar -zxvf … or tar -jxvf for tar.bz2</h4><h4 id="3-Get-into-the-folder"><a href="#3-Get-into-the-folder" class="headerlink" title="[3] Get into the folder."></a>[3] Get into the folder.</h4><h4 id="4-In-terminal"><a href="#4-In-terminal" class="headerlink" title="[4] In terminal"></a>[4] In terminal</h4><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-meta"><span class="hljs-meta-keyword">$module</span> load python/2.7.9-gcc-4.8.5</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$python</span> setup.py install --user </span><br></code></pre></td></tr></table></figure>
 <h4 id="5-Environment-Variables-Setting"><a href="#5-Environment-Variables-Setting" class="headerlink" title="[5] Environment Variables Setting"></a>[5] Environment Variables Setting</h4><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-meta"><span class="hljs-meta-keyword">$vi</span> ~/.bashrc</span><br></code></pre></td></tr></table></figure>
 <p>In the vim: </p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">export PYTHONPATH = ~<span class="hljs-regexp">/.local/</span>bin:<span class="hljs-variable">$PYTHONPATH</span><br>export PATH = ~<span class="hljs-regexp">/.local/</span>bin<span class="hljs-regexp">/python2.7/</span>site-packages:<span class="hljs-variable">$PYTHONPATH</span><br>alias phonopy =<span class="hljs-string">&quot;~/.local/bin/phonopy&quot;</span><br></code></pre></td></tr></table></figure>
+
 <p>Here, ~ stand for the parent path for the folder “.local” and you can use <code>os.path.dirname(.local)</code> to get that.</p>
 <h2 id="Phono3py"><a href="#Phono3py" class="headerlink" title="Phono3py"></a>Phono3py</h2><p>Most of the installation is same as phonopy. But you should add below in step [3]:</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-meta"><span class="hljs-meta-keyword">$module</span> load lapack/3.5.0-gcc-4.8.5</span><br><span class="hljs-meta"><span class="hljs-meta-keyword">$module</span> load openblas/0.2.20-gcc-4.8.5</span><br></code></pre></td></tr></table></figure>
+
 <p>And the environment variables setting is the same. </p>
 
             </div>
@@ -275,9 +278,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2018/11/01/basic-output/">
+                      <a href="/2018/11/01/VASP_01/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">basic_output</span>
+                        <span class="hidden-mobile">VASP01</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
