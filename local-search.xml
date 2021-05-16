@@ -4,25 +4,6 @@
   
   
   <entry>
-    <title>Chap01-1</title>
-    <link href="/2021/04/21/flupy1/"/>
-    <url>/2021/04/21/flupy1/</url>
-    
-    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> collections<br><br>Card = collections.namedtuple(<span class="hljs-string">&#x27;Card&#x27;</span>, [<span class="hljs-string">&#x27;rank&#x27;</span>, <span class="hljs-string">&#x27;suit&#x27;</span>])<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FrenchDeck</span>:</span><br>    ranks = [<span class="hljs-built_in">str</span>(n) <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>, <span class="hljs-number">11</span>)] + <span class="hljs-built_in">list</span>(<span class="hljs-string">&#x27;JQKA&#x27;</span>)<br>    suits = <span class="hljs-string">&#x27;spades diamonds clubs hearts&#x27;</span>.split()<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span><br>        self._cards = [Card(rank, suit) <span class="hljs-keyword">for</span> suit <span class="hljs-keyword">in</span> self.suits<br>                                        <span class="hljs-keyword">for</span> rank <span class="hljs-keyword">in</span> self.ranks]<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__len__</span>(<span class="hljs-params">self</span>):</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">len</span>(self._cards)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getitem__</span>(<span class="hljs-params">self, position</span>):</span><br>        <span class="hljs-keyword">return</span> self._cards[position]<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>flupy</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>ML-Decision Tree</title>
     <link href="/2020/05/11/ML2/"/>
     <url>/2020/05/11/ML2/</url>
