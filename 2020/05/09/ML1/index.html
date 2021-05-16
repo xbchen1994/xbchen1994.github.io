@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>basic_output - Hexo</title>
+  <title>ML-KNN - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="basic_output">
+            <span class="h2" id="subtitle" title="ML-KNN">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2018-11-01 19:57" pubdate>
-        November 1, 2018 pm
+      <time datetime="2020-05-09 16:17" pubdate>
+        May 9, 2020 pm
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      568 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      7
        分钟
     </span>
   
@@ -225,10 +225,21 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">basic_output</h1>
+            <h1 style="display: none">ML-KNN</h1>
             
             <div class="markdown-body">
-              
+              <ol>
+<li>kNN聚类算法<br>欧式距离定义分类方式。(首先需要归一化数值)</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python3</span><br><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">Created on Sun May  9 16:13:12 2020</span><br><span class="hljs-string"></span><br><span class="hljs-string">@author: chen</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-keyword">from</span> matplotlib.font_manager <span class="hljs-keyword">import</span> FontProperties<br><span class="hljs-keyword">import</span> matplotlib.lines <span class="hljs-keyword">as</span> mlines<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> operator<br><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">函数说明：创建数据集</span><br><span class="hljs-string"></span><br><span class="hljs-string">Parameters:</span><br><span class="hljs-string">    None</span><br><span class="hljs-string">    </span><br><span class="hljs-string">Returns:</span><br><span class="hljs-string">    group - 数据集</span><br><span class="hljs-string">    labels - 分类标签</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createDataSet</span>():</span><br>    <span class="hljs-comment"># 二维特征</span><br>    group = np.array([[<span class="hljs-number">3</span>,<span class="hljs-number">104</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">100</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">81</span>],[<span class="hljs-number">101</span>,<span class="hljs-number">10</span>],[<span class="hljs-number">99</span>,<span class="hljs-number">5</span>],[<span class="hljs-number">98</span>,<span class="hljs-number">2</span>]])<br>    <span class="hljs-comment"># 对应的标签</span><br>    labels = [<span class="hljs-string">&#x27;爱情片&#x27;</span>,<span class="hljs-string">&#x27;爱情片&#x27;</span>,<span class="hljs-string">&#x27;爱情片&#x27;</span>,<span class="hljs-string">&#x27;动作片&#x27;</span>,<span class="hljs-string">&#x27;动作片&#x27;</span>,<span class="hljs-string">&#x27;动作片&#x27;</span>]<br>    <span class="hljs-keyword">return</span> group, labels<br></code></pre></td></tr></table></figure>
+
+<p>定义欧氏距离并生成字典获得排序判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">函数说明：kNN算法，分类器</span><br><span class="hljs-string"></span><br><span class="hljs-string">Parameters:</span><br><span class="hljs-string">    inX - 用于分类的数据（测试集）</span><br><span class="hljs-string">    dataSet - 用于训练的数据（训练集）（n*1维列向量）</span><br><span class="hljs-string">    labels - 分类标准（n*1维列向量）</span><br><span class="hljs-string">    k - kNN算法参数，选择距离最小的k个点</span><br><span class="hljs-string">    </span><br><span class="hljs-string">Returns:</span><br><span class="hljs-string">    sortedClassCount[0][0] - 分类结果</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">classify0</span>(<span class="hljs-params">inX, dataSet, labels, k</span>):</span><br>    <span class="hljs-comment"># numpy函数shape返回数组维度，shape[0]即行数</span><br>    dataSetSize = dataSet.shape[<span class="hljs-number">0</span>]<br>    <span class="hljs-comment"># 将inX重复dataSetSize次并排成一列</span><br>    diffMat = np.tile(inX, (dataSetSize, <span class="hljs-number">1</span>)) - dataSet<br>    <span class="hljs-comment">#计算欧式距离</span><br>    <span class="hljs-comment"># 二维特征相减后平方（用diffMat的转置乘diffMat）</span><br>    sqDiffMat = diffMat**<span class="hljs-number">2</span><br>    <span class="hljs-comment"># sum()所有元素相加，sum(0)列相加，sum(1)行相加</span><br>    sqDistances = sqDiffMat.<span class="hljs-built_in">sum</span>(axis=<span class="hljs-number">1</span>)<br>    <span class="hljs-comment"># 开方，计算出距离</span><br>    distances = sqDistances**<span class="hljs-number">0.5</span><br>    <span class="hljs-comment"># argsort函数返回的是distances值从小到大的--索引值</span><br>    sortedDistIndicies = distances.argsort()<br>    <span class="hljs-comment">#与训练集本集作对比</span><br>    <span class="hljs-comment"># 定义一个记录类别次数的字典</span><br>    classCount = &#123;&#125;<br>    <span class="hljs-comment"># 选择距离最小的k个点</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(k):<br>        <span class="hljs-comment"># 取出前k个元素的类别</span><br>        voteIlabel = labels[sortedDistIndicies[i]]<br>        <span class="hljs-comment"># 字典的get()方法，返回指定键的值，如果值不在字典中返回0</span><br>        <span class="hljs-comment"># 计算类别次数</span><br>        classCount[voteIlabel] = classCount.get(voteIlabel, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span><br>    <span class="hljs-comment"># python3中用items()替换python2中的iteritems()</span><br>    <span class="hljs-comment"># key = operator.itemgetter(1)根据字典的值进行排序</span><br>    <span class="hljs-comment"># key = operator.itemgetter(0)根据字典的键进行排序</span><br>    <span class="hljs-comment"># reverse降序排序字典</span><br>    sortedClassCount = <span class="hljs-built_in">sorted</span>(classCount.items(),<br>                              key = operator.itemgetter(<span class="hljs-number">1</span>), reverse = <span class="hljs-literal">True</span>)<br>    <span class="hljs-comment"># 返回次数最多的类别，即所要分类的类别</span><br>    <span class="hljs-keyword">return</span> sortedClassCount[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">def</span> main():<br>    <span class="hljs-comment"># 创建数据集</span><br>    <span class="hljs-attribute">group</span>, labels = createDataSet()<br>    <span class="hljs-comment"># 测试集</span><br>    <span class="hljs-attribute">test</span> =<span class="hljs-meta"> [18,90]</span><br>    <span class="hljs-comment"># kNN分类</span><br>    <span class="hljs-attribute">test_class</span> = classify<span class="hljs-number">0</span>(test, group, labels, <span class="hljs-number">3</span>)<br>    <span class="hljs-comment"># 打印分类结果</span><br>    <span class="hljs-attribute">print</span>(test_class)<br>    <br><span class="hljs-attribute">main</span>()    <br></code></pre></td></tr></table></figure>
+
+
+
             </div>
             <hr>
             <div>
@@ -248,9 +259,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/01/05/Isotropy1/">
+                      <a href="/2020/05/11/ML2/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Isotropy-1</span>
+                        <span class="hidden-mobile">ML-Decision Tree</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -258,8 +269,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2018/11/01/VASP_01/">
-                        <span class="hidden-mobile">VASP01</span>
+                      <a href="/2019/04/15/VASP_install/">
+                        <span class="hidden-mobile">VASP.5.4.4+wannier90_v2.1+vtst+OPTCELL</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
